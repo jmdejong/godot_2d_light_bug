@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://img/sprites/guns/pistol.png" type="Texture" id=3]
+
+[node name="Pistol" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 3
+position = Vector2( 9.81279, 0.873044 )
+texture = ExtResource( 3 )

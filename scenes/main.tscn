@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/view.tscn" type="PackedScene" id=3]
+[ext_resource path="res://img/sprites/grass2.png" type="Texture" id=4]
+[ext_resource path="res://img/extern/docs/light.png" type="Texture" id=5]
+[ext_resource path="res://img/sprites/white.png" type="Texture" id=6]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/main.gd" type="Script" id=11]
+
+[node name="main" type="Node2D"]
+modulate = Color( 0.466667, 0.466667, 0.466667, 1 )
+script = ExtResource( 11 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -1e+06
+margin_top = -1e+06
+margin_right = 1e+06
+margin_bottom = 999998.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 218, 95 )
+z_index = 5
+
+[node name="Hiding" type="Light2D" parent="Player"]
+position = Vector2( 0, -2.28882e-05 )
+texture = ExtResource( 6 )
+texture_scale = 4.0
+mode = 3
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_gradient_length = 0.5
+shadow_filter = 4
+shadow_filter_smooth = 10.0
+shadow_item_cull_mask = 2
+
+[node name="Visible" type="Light2D" parent="Player"]
+position = Vector2( 0, -2.28882e-05 )
+texture = ExtResource( 5 )
+texture_scale = 8.0
+shadow_enabled = true
+shadow_filter = 2
+
+[node name="View" parent="Player" instance=ExtResource( 3 )]
+current = true
+max_zoom = 5
+
+[node name="Block" parent="." instance=ExtResource( 1 )]
+position = Vector2( 164.455, 1.16635 )
+
+[node name="Enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 38.2665, -239.166 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 133.907, -257.827 )
